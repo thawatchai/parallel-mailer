@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 
-WORKER_NUM = 10
+WORKER_NUM = 20
 
 require 'rubygems'
 require 'ValidateEmail'

@@ -32,7 +32,7 @@ end
 # Benchmark.bm do |x|
 #   x.report('test') do
 
-    Parallel.each(File.open(ARGV[0], 'r'), :in_processes => WORKER_NUM) do |s|
+    Parallel.each_with_index(File.open(ARGV[0], 'r'), :in_processes => WORKER_NUM) do |s, i|
       l = s.split(',')
       email = l[1].strip
 
@@ -45,7 +45,7 @@ end
         :body => body
       ) if ValidateEmail.validate(email)
 
-      puts"#{Process.pid} #{email}\n"
+      puts"#{i} #{Process.pid} #{email}\n"
     end
 
 #   end

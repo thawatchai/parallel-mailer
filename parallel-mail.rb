@@ -42,7 +42,7 @@ end
         :to => email,
         :from => ARGV[1],
         :subject => subject,
-        :body => body
+        :html_body => body
       ) if ValidateEmail.validate(email)
 
       puts"#{i} #{Process.pid} #{email}\n"

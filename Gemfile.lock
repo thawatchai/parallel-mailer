@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    ValidateEmail (1.0.0)
     faker (1.0.1)
       i18n (~> 0.4)
     i18n (0.6.0)
@@ -16,13 +17,12 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    validates_email_format_of (1.5.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  ValidateEmail
   faker
   parallel
   pony
-  validates_email_format_of

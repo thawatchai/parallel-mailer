@@ -38,7 +38,7 @@ end
 
       Pony.mail(
         :charset => 'utf-8',
-        :text_part_charset => 'utf-8',
+        # :text_part_charset => 'utf-8',
         :to => email,
         :from => ARGV[1],
         :subject => subject,

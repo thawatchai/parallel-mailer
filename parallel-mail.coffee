@@ -30,7 +30,6 @@ mailOpts =
 # --------------------------------------------------------------------
 
 addrList = []
-i = 0
 
 eventEmitter = new events.EventEmitter()
 
@@ -42,7 +41,10 @@ eventEmitter.on 'addrListLoaded', ->
         console.log err.message
       else
         console.log addr
-      transport.close() if addr == addrList[addrList.length-1]
+      # transport.close() if addr == addrList[addrList.length-1]
+      if addr == addrList[addrList.length-1]
+        console.log 'sent all mails at ' + (new Date())
+        console.log "press Ctrl+C when you're sure that SMTP's picked up all mails."
     setImmediate () ->
       callback null
   , (err) ->

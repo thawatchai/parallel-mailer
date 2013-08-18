@@ -1,0 +1,16 @@
+{
+  "name": "parallel-mail",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "coffee parallel-mail.coffee"
+  },
+  "dependencies": {
+    "coffee-script": "*",
+    "async": "*",
+    "nodemailer": "*",
+    "optimist": "*"
+
+  }
+}
+

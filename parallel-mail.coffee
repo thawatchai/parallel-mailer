@@ -7,6 +7,8 @@ events        = require('events')
 lineReader    = require('line-reader')
 ProgressBar   = require('progress')
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+
 # get argruments
 # --------------------------------------------------------------------
 argv = require('optimist')

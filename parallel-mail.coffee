@@ -31,37 +31,43 @@ mailOpts =
   html                 : emailLines.slice(1, emailLines.length).join('\n')
   generateTextFromHTML : true
 
-# send emails
+
+# send emails (v2)
 # --------------------------------------------------------------------
 
-addrList = []
+v2 = () ->
+  addrList = []
 
-async.series
-  loading: (callback) ->
-    console.log 'loading...'
-    lineReader.eachLine argv.l, (line, last) ->
-      addrList.push line.split(',')[1].trim()
-      callback null if last
+  async.series
+    loading: (callback) ->
+      console.log 'loading...'
+      lineReader.eachLine argv.l, (line, last) ->
+        addrList.push line.split(',')[1].trim()
+        callback null if last
 
-  sending: (callback) ->
-    addrListLength = addrList.length
-    i = 1
-    async.whilst ->
-        i <= addrListLength
+    sending: (callback) ->
+      addrListLength = addrList.length
+      i = 1
+      async.whilst ->
+          i <= addrListLength
 
-      , (callback) ->
-        mailOpts['to'] = addrList[i-1]
-        console.log "#{ i }: #{ mailOpts['to'] }"
-        transport.sendMail mailOpts, (err, info) ->
-          console.log err.message if err?
-          i++
-          callback null
+        , (callback) ->
+          mailOpts['to'] = addrList[i-1]
+          console.log "#{ i }: #{ mailOpts['to'] }"
+          setTimeout ->
+            transport.sendMail mailOpts, (err, info) ->
+              console.log err.message if err?
+              i++
+              callback null
+          , 100
 
-      , (err) ->
-        console.log 'sent all mails at ' + (new Date())
+        , (err) ->
+          console.log 'sent all mails at ' + (new Date())
+
+v2()
 
 
-# # send emails
+# # send emails (v1)
 # # --------------------------------------------------------------------
 #
 # addrList = []

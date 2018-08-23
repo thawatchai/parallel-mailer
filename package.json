@@ -6,12 +6,12 @@
     "start": "coffee parallel-mail.coffee"
   },
   "dependencies": {
-    "async": "2.4.0",
-    "coffee-script": "1.12.5",
+    "async": "2.6.1",
+    "coffee-script": "1.12.7",
     "line-reader": "0.4.0",
-    "nodemailer": "4.0.1",
+    "nodemailer": "4.6.8",
     "nodemailer-smtp-transport": "2.7.4",
     "optimist": "0.6.1",
-    "progress": "1.1.8"
+    "progress": "2.0.0"
   }
 }
